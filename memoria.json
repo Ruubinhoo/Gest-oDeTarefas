@@ -1,0 +1,47 @@
+{
+    "usuarios": [
+      {
+        "nome": "Usuário 1",
+        "funcao": "Função 1"
+      },
+      {
+        "nome": "Usuário 2",
+        "funcao": "Função 2"
+      }
+    ],
+    "projetos": [
+      {
+        "nome": "Projeto 1",
+        "descricao": "Descrição do Projeto 1",
+        "status": "Não Iniciado",
+        "prioridade": "Baixa",
+        "data_entrega": "2023-12-31",
+        "responsavel": "Usuário 1",
+        "tarefas": [
+          {
+            "descricao": "Tarefa 1 do Projeto 1",
+            "status": "Não Iniciado"
+          },
+          {
+            "descricao": "Tarefa 2 do Projeto 1",
+            "status": "Em Andamento"
+          }
+        ]
+      },
+      {
+        "nome": "Projeto 2",
+        "descricao": "Descrição do Projeto 2",
+        "status": "Em Andamento",
+        "prioridade": "Média",
+        "data_entrega": "2023-11-15",
+        "responsavel": "Usuário 2",
+        "tarefas": [
+          {
+            "descricao": "Tarefa 1 do Projeto 2",
+            "status": "Concluído"
+          }
+        ]
+      }
+    ]
+  }
+  

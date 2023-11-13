@@ -1,4 +1,6 @@
 class Tarefa:
+    status_tarefa_disponiveis = ["Iniciado", "Em Andamento", "Finalizado"]
+
     def __init__(self, descricao, status, prioridade=None, data_entrega=None, responsavel=None):
         self.descricao = descricao
         self.status = status
@@ -14,3 +16,18 @@ class Tarefa:
 
     def set_responsavel(self, responsavel):
         self.responsavel = responsavel
+
+    def alterar_status(self, novo_status):
+        self.status = novo_status
+        
+    @staticmethod
+    def from_dict(dados):
+        descricao = dados["descricao"]
+        status = dados["status"]
+        return Tarefa(descricao, status)
+
+    def to_dict(self):
+        return {
+            "descricao": self.descricao,
+            "status": self.status
+        }
