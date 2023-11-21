@@ -8,13 +8,19 @@ class Usuario:
     def adicionar_projeto(self, projeto):
         self.projetos.append(projeto)
 
+    # @staticmethod
+    # def listar_usuarios(usuarios):
+    #     print("Usuários Disponíveis:")
+    #     for i, usuario in enumerate(usuarios, start=1):
+    #         print(f"{i}. {usuario.nome} - {usuario.funcao}")
+    #     return usuarios
+
     @staticmethod
     def listar_usuarios(usuarios):
-        print("Usuários Disponíveis:")
-        for i, usuario in enumerate(usuarios, start=1):
-            print(f"{i}. {usuario.nome} - {usuario.funcao}")
-        return usuarios
-
+        print("\nLista de Usuários:")
+        for usuario in usuarios:
+            print(f"Nome: {usuario.nome} - Função: {usuario.funcao}")
+    
     @staticmethod
     def from_dict(dados):
         nome = dados["nome"]
