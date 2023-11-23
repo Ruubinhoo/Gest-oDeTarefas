@@ -8,6 +8,8 @@ class SistemaGerenciamentoProjetos:
     def __init__(self):
         self.usuarios = []
         self.projetos = []
+        
+
 
     def adicionar_usuario(self, usuario):
         self.usuarios.append(usuario)
@@ -45,6 +47,9 @@ class SistemaGerenciamentoProjetos:
             for j, tarefa in enumerate(projeto.tarefas, start=1):
                 print(f"    {j}. Descrição da Tarefa: {tarefa.descricao}")
                 print(f"       Status da Tarefa: {tarefa.status}")
+                print("   Comentários: ")
+                for comentario in projeto.comentarios:
+                    print(f"      {comentario['usuario']}: {comentario['comentario']}")
             print("   ___________________________________")
         return self.projetos
         
@@ -106,3 +111,18 @@ class SistemaGerenciamentoProjetos:
                 dados = json.load(arquivo)
                 self.usuarios = [Usuario.from_dict(usuario) for usuario in dados["usuarios"]]
                 self.projetos = [Projeto.from_dict(projeto) for projeto in dados["projetos"]]
+                
+    def efetuar_login(self, nome_usuario, senha):
+        for usuario in self.usuarios:
+            if usuario.nome == nome_usuario and usuario.senha == senha:
+                return usuario  # Retorna a instância completa do Usuario
+        return None
+    
+    def realizar_login(self, nome_usuario, senha):
+        for usuario in self.usuarios:
+            if usuario.nome == nome_usuario and usuario.senha == senha:
+                return usuario
+        return None
+    
+    def adicionar_comentario_a_projeto(self, projeto, usuario, comentario):
+        projeto.adicionar_comentario(usuario, comentario)

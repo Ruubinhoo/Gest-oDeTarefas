@@ -1,5 +1,4 @@
 class Tarefa:
-    status_tarefa_disponiveis = ["Iniciado", "Em Andamento", "Finalizado"]
 
     def __init__(self, descricao, status, prioridade=None, data_entrega=None, responsavel=None):
         self.descricao = descricao
@@ -7,6 +6,8 @@ class Tarefa:
         self.prioridade = prioridade
         self.data_entrega = data_entrega
         self.responsavel = responsavel
+        
+    status_tarefa_disponiveis = ["Iniciado", "Em Andamento", "Finalizado"]
 
     def set_prioridade(self, prioridade):
         self.prioridade = prioridade

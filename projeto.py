@@ -1,10 +1,8 @@
 from tarefa import Tarefa
 
 class Projeto:
-    Status_Disponíveis = ["Não Iniciado", "Em Andamento", "Concluído"]
-    prioridades_disponíveis = ["Baixa","Média","Alta"]
 
-    def __init__(self, nome, descricao, status, prioridade=None, data_entrega=None, responsavel=None):
+    def __init__(self, nome, descricao, status, prioridade, data_entrega, responsavel):
         self.nome = nome
         self.descricao = descricao
         self.status = status
@@ -12,6 +10,10 @@ class Projeto:
         self.data_entrega = data_entrega
         self.responsavel = responsavel
         self.tarefas = []
+        self.comentarios = []
+        
+    Status_Disponíveis = ["Não Iniciado", "Em Andamento", "Concluído"]
+    prioridades_disponíveis = ["Baixa","Média","Alta"]
 
     def adicionar_tarefa(self, tarefa):
         self.tarefas.append(tarefa)
@@ -40,3 +42,6 @@ class Projeto:
             "responsavel": self.responsavel,
             "tarefas": [tarefa.to_dict() for tarefa in self.tarefas]
         }
+        
+    def adicionar_comentario(self, usuario, comentario):
+        self.comentarios.append({"usuario": usuario.nome, "comentario": comentario})
